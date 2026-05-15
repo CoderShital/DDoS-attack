@@ -1,0 +1,146 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Access Blocked</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body{
+    margin:0;
+    padding:40px 15px;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    font-family:Arial, sans-serif;
+    overflow-x:hidden;
+  }
+    .blocked-card{
+      width:90%;
+      max-width:650px;
+      background:rgba(255,255,255,0.08);
+      backdrop-filter:blur(12px);
+      border:1px solid rgba(255,255,255,0.15);
+      border-radius:24px;
+      padding:50px;
+      text-align:center;
+      color:white;
+      box-shadow:0 10px 35px rgba(0,0,0,0.35);
+      animation:fadeIn 1s ease;
+    }
+
+    .shield{
+      font-size:90px;
+      margin-bottom:20px;
+      animation:pulse 2s infinite;
+    }
+
+    h1{
+      font-size:42px;
+      font-weight:700;
+      margin-bottom:15px;
+    }
+
+    p{
+      color:#d1d5db;
+      font-size:18px;
+      line-height:1.6;
+    }
+
+    .info-box{
+      margin-top:30px;
+      background:rgba(255,255,255,0.06);
+      border-radius:16px;
+      padding:20px;
+      text-align:left;
+    }
+
+    .info-box p{
+      margin:8px 0;
+      font-size:15px;
+    }
+
+    .btn-custom{
+      margin-top:30px;
+      padding:12px 28px;
+      border:none;
+      border-radius:12px;
+      font-weight:600;
+      background:#ef4444;
+      color:white;
+      transition:0.3s;
+    }
+
+    .btn-custom:hover{
+      background:#dc2626;
+      transform:translateY(-2px);
+    }
+
+    .status{
+      display:inline-block;
+      padding:8px 16px;
+      border-radius:999px;
+      background:rgba(239,68,68,0.15);
+      color:#fca5a5;
+      font-weight:600;
+      margin-bottom:20px;
+    }
+
+    @keyframes pulse{
+      0%{transform:scale(1);}
+      50%{transform:scale(1.08);}
+      100%{transform:scale(1);}
+    }
+
+    @keyframes fadeIn{
+      from{
+        opacity:0;
+        transform:translateY(20px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="blocked-card">
+
+    <div class="status">
+      Security Protection Active
+    </div>
+
+    <div class="shield">
+      🛡️
+    </div>
+
+    <h1>Access Blocked</h1>
+
+    <p>
+      Your request activity exceeded the allowed security threshold.
+      This request has been temporarily blocked by the DDoS protection system.
+    </p>
+
+    <div class="info-box">
+      <p><strong>Status Code:</strong> 403 Forbidden</p>
+      <p><strong>Reason:</strong> Too many requests detected</p>
+      <p><strong>Security Layer:</strong> Rate Limiter + Anomaly Detection</p>
+      <p><strong>Action:</strong> Please wait a few moments before retrying</p>
+    </div>
+
+    <button class="btn-custom" onclick="window.location.reload()">
+      Retry Request
+    </button>
+
+  </div>
+
+</body>
+</html>
