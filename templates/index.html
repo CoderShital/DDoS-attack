@@ -1,6 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,132 +9,152 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-
-        body{
-            margin:0;
-            background:#0f172a;
-            font-family:Arial, sans-serif;
-            overflow:hidden;
+        body {
+            margin: 0;
+            background: #0f172a;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
         }
 
-        .sidebar{
-            position:fixed;
-            left:0;
-            top:0;
-            width:320px;
-            height:100vh;
-            background:#111827;
-            border-right:1px solid rgba(255,255,255,0.08);
-            overflow-y:auto;
-            padding:25px 18px;
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 320px;
+            height: 100vh;
+            background: #111827;
+            border-right: 1px solid rgba(255, 255, 255, 0.08);
+            overflow-y: auto;
+            padding: 25px 18px;
         }
 
-        .sidebar-title{
-            color:white;
-            font-size:28px;
-            font-weight:700;
-            margin-bottom:25px;
+        .sidebar-title {
+            color: white;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 25px;
         }
 
-        .log-card{
-            background:#1e293b;
-            border-radius:14px;
-            padding:14px;
-            margin-bottom:15px;
-            border-left:4px solid #ef4444;
-            transition:0.3s;
+        .log-card {
+            background: #1e293b;
+            border-radius: 14px;
+            padding: 14px;
+            margin-bottom: 15px;
+            border-left: 4px solid #ef4444;
+            transition: 0.3s;
         }
 
-        .log-card:hover{
-            transform:translateX(5px);
-            background:#243244;
+        .log-card:hover {
+            transform: translateX(5px);
+            background: #243244;
         }
 
-        .log-time{
-            color:#94a3b8;
-            font-size:12px;
+        .log-time {
+            color: #94a3b8;
+            font-size: 12px;
         }
 
-        .log-ip{
-            color:white;
-            font-size:18px;
-            font-weight:600;
-            margin-top:5px;
+        .log-ip {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            margin-top: 5px;
         }
 
-        .log-status{
-            display:inline-block;
-            margin-top:10px;
-            padding:5px 12px;
-            border-radius:999px;
-            background:rgba(239,68,68,0.15);
-            color:#fca5a5;
-            font-size:12px;
-            font-weight:600;
+        .log-status {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 5px 12px;
+            border-radius: 999px;
+            background: rgba(239, 68, 68, 0.15);
+            color: #fca5a5;
+            font-size: 12px;
+            font-weight: 600;
         }
 
-        .main-content{
-            margin-left:320px;
-            height:100vh;
-            overflow-y:auto;
-            padding:30px;
-            color:white;
+        .main-content {
+            margin-left: 320px;
+            height: 100vh;
+            overflow-y: auto;
+            padding: 30px;
+            color: white;
         }
 
-        .dashboard-title{
-            font-size:38px;
-            font-weight:700;
-            margin-bottom:25px;
+        .dashboard-title {
+            font-size: 38px;
+            font-weight: 700;
+            margin-bottom: 25px;
         }
 
-        .stats-card{
-            border:none;
-            border-radius:18px;
-            padding:10px;
-            color:white;
-            box-shadow:0 10px 25px rgba(0,0,0,0.2);
+        .stats-card {
+            border: none;
+            border-radius: 18px;
+            padding: 10px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
         }
 
-        .chart-card{
-            background:#111827;
-            border-radius:22px;
-            padding:25px;
-            margin-top:30px;
+        .chart-card {
+            background: #111827;
+            border-radius: 22px;
+            padding: 25px;
+            margin-top: 30px;
         }
 
-        .chart-wrapper{
-            height:350px;
+        .search-input {
+            width: 100%;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 14px;
+            outline: none;
         }
 
-        .alert-box{
-            margin-top:25px;
-            background:rgba(239,68,68,0.12);
-            border:1px solid rgba(239,68,68,0.3);
-            border-radius:18px;
-            padding:18px;
-            color:#fca5a5;
-            font-weight:600;
-            display:none;
+        .search-input:focus {
+            border-color: #3b82f6;
         }
 
-        @media(max-width:992px){
+        .log-requests {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-top: 4px;
+        }
 
-            body{
-                overflow:auto;
+        .chart-wrapper {
+            height: 350px;
+        }
+
+        .alert-box {
+            margin-top: 25px;
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 18px;
+            padding: 18px;
+            color: #fca5a5;
+            font-weight: 600;
+            display: none;
+        }
+
+        @media(max-width:992px) {
+
+            body {
+                overflow: auto;
             }
 
-            .sidebar{
-                position:relative;
-                width:100%;
-                height:auto;
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
             }
 
-            .main-content{
-                margin-left:0;
-                height:auto;
+            .main-content {
+                margin-left: 0;
+                height: auto;
             }
         }
-
     </style>
 </head>
 
@@ -146,9 +166,20 @@
         <div class="sidebar-title">
             🚨 Attack Logs
         </div>
+        <input type="text" id="logSearch" placeholder="Search by IP address..." onkeyup="filterLogs()"
+            class="search-input" />
+        <div id="searchMessage" style="
+            display:none;
+            color:#fca5a5;
+            margin-top:10px;
+            padding:10px;
+            border-radius:10px;
+            background:rgba(239,68,68,0.1);
+        ">
+            IP address not found.
+        </div>
 
         <div id="logsContainer"></div>
-
     </div>
 
     <!-- Main -->
@@ -210,155 +241,186 @@
 
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-<script>
+    <script>
 
-let totalData = [];
-let blockedData = [];
+        let totalData = [];
+        let blockedData = [];
 
-const ctx = document.getElementById('trafficChart').getContext('2d');
+        const ctx = document.getElementById('trafficChart').getContext('2d');
 
-const chart = new Chart(ctx, {
-
-    type: 'line',
-
-    data: {
-
-        labels: [],
-
-        datasets: [
-            {
-                label: 'Total Requests',
-                data: totalData,
-                borderWidth: 3
+        const chart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [
+                    {
+                        label: 'Total Requests',
+                        data: totalData,
+                        borderWidth: 3
+                    },
+                    {
+                        label: 'Blocked Requests',
+                        data: blockedData,
+                        borderWidth: 3
+                    }
+                ]
             },
 
-            {
-                label: 'Blocked Requests',
-                data: blockedData,
-                borderWidth: 3
-            }
-        ]
-    },
-
-    options: {
-
-        responsive: true,
-        maintainAspectRatio: false,
-
-        plugins: {
-            legend: {
-                labels: {
-                    color: 'white'
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        labels: {
+                            color: 'white'
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    },
+                    y: {
+                        ticks: {
+                            color: 'white'
+                        }
+                    }
                 }
             }
-        },
+        });
 
-        scales: {
+        async function updateStats() {
+            const res = await fetch('/stats');
+            const data = await res.json();
+            console.log("Stats API Response:", data);
+            document.getElementById('totalRequests').innerText = data.total;
+            document.getElementById('blockedRequests').innerText = data.blocked;
 
-            x: {
-                ticks: {
-                    color: 'white'
-                }
-            },
+            chart.data.labels.push('');
 
-            y: {
-                ticks: {
-                    color: 'white'
-                }
+            totalData.push(data.total);
+            blockedData.push(data.blocked);
+
+            if (totalData.length > 20) {
+                totalData.shift();
+                blockedData.shift();
+                chart.data.labels.shift();
             }
+            chart.update();
+            checkAlert(data.total, data.blocked);
         }
-    }
-});
 
-async function updateStats(){
+        async function updateTopIP() {
+            const res = await fetch('/top-ip');
+            const data = await res.json();
+            document.getElementById('topIP').innerText = data.top_ip;
+        }
 
-    const res = await fetch('/stats');
-    const data = await res.json();
+        async function updateLogs() {
+            const res = await fetch('/logs');
+            const logs = await res.json();
+            const container = document.getElementById('logsContainer');
 
-    document.getElementById('totalRequests').innerText = data.total;
-    document.getElementById('blockedRequests').innerText = data.blocked;
+            container.innerHTML = "";
 
-    chart.data.labels.push('');
+            logs.forEach(log => {
 
-    totalData.push(data.total);
-    blockedData.push(data.blocked);
+                const istTime = new Date(log.timestamp)
+                    .toLocaleString(
+                        'en-IN',
+                        { timeZone: 'Asia/Kolkata' }
+                    );
 
-    if(totalData.length > 20){
-        totalData.shift();
-        blockedData.shift();
-        chart.data.labels.shift();
-    }
+                const card = document.createElement("div");
 
-    chart.update();
+                card.className = "log-card";
+                card.setAttribute("data-ip", log.ip);
 
-    checkAlert(data.blocked);
-}
-
-async function updateTopIP(){
-
-    const res = await fetch('/top-ip');
-    const data = await res.json();
-
-    document.getElementById('topIP').innerText = data.top_ip;
-}
-
-async function updateLogs(){
-
-    const res = await fetch('/logs');
-    const logs = await res.json();
-
-    const container = document.getElementById('logsContainer');
-
-    container.innerHTML = "";
-
-    [...logs].reverse().forEach(log => {
-
-        const card = `
-
-        <div class="log-card">
-
+                card.innerHTML = `
             <div class="log-time">
-                ${log.timestamp}
+                ${istTime}
             </div>
 
             <div class="log-ip">
                 ${log.ip}
             </div>
 
-            <div class="log-status">
-                ${log.status}
+            <div class="log-requests">
+                Requests: ${log.request_count}
             </div>
 
-        </div>
+            <div class="log-status"
+                style="
+                    background:${log.status === 'normal'
+                        ? 'rgba(34,197,94,0.15)'
+                        : log.status === 'whitelisted'
+                        ? 'rgba(59,130,246,0.15)'
+                        : 'rgba(239,68,68,0.15)'};
+
+                    color:${log.status === 'normal'
+                        ? '#86efac'
+                        : log.status === 'whitelisted'
+                        ? '#93c5fd'
+                        : '#fca5a5'};
+                ">
+                ${log.status}
+            </div>
         `;
+                container.appendChild(card);
+            });
 
-        container.insertAdjacentHTML("beforeend", card);
-    });
-}
+            filterLogs();
+        }
 
-function checkAlert(blocked){
 
-    const alertBox = document.getElementById('alertBox');
 
-    if(blocked > 0){
-        alertBox.style.display = "block";
-    }
-    else{
-        alertBox.style.display = "none";
-    }
-}
+        function filterLogs() {
 
-updateStats();
-updateLogs();
-updateTopIP();
+            const searchText = document
+                .getElementById("logSearch")
+                .value
+                .trim()
+                .toLowerCase();
 
-setInterval(updateStats, 2000);
-setInterval(updateLogs, 2000);
-setInterval(updateTopIP, 3000);
+            const cards = document.querySelectorAll(".log-card");
+            const message = document.getElementById("searchMessage");
 
-</script>
+            let found = false;
+
+            cards.forEach(card => {
+
+                const ip = card.dataset.ip.toLowerCase();
+
+                if (ip.includes(searchText)) {
+                    card.style.display = "";
+                    found = true;
+                }
+                else {
+                    card.style.display = "none";
+                }
+            });
+
+            if (!found && searchText !== "") {
+                message.style.display = "block";
+            } else {
+                message.style.display = "none";
+            }
+        }
+
+        updateStats();
+        updateLogs();
+        updateTopIP();
+
+        setInterval(updateStats, 2000);
+        setInterval(updateLogs, 2000);
+        setInterval(updateTopIP, 3000);
+
+    </script>
 
 </body>
+
 </html>
