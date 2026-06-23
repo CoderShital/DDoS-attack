@@ -16,8 +16,9 @@ chrome.webNavigation.onCompleted.addListener(
           })
         }
       );
+
       const result = await response.json();
-      console.log(result);
+      console.log("BACKEND RESPONSE:", result);
       if (result.block) {
         chrome.tabs.update(
           details.tabId,

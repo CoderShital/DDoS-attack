@@ -14,6 +14,9 @@ from utils.helpers import get_current_timestamp
 from config import WHITELISTED_IPS
 
 def analyze_request(ip, endpoint, request_count):
+    print("-----------------------------------------------------------------------------")
+    print(f"Received IP: '{ip}'")
+    print(f"Whitelisted IPs: {WHITELISTED_IPS}")
     # For whitelisted IPs
     if ip in WHITELISTED_IPS:
         whitelisted_ips = {
@@ -61,6 +64,7 @@ def analyze_request(ip, endpoint, request_count):
         )
     }
     save_traffic(traffic_log)
+
     if result["attack"]:
         blocked_ip = BlockedIP(
             ip=ip,
@@ -82,6 +86,7 @@ def analyze_request(ip, endpoint, request_count):
 
 
 def process_request(ip, endpoint, request_count):
+    
     result = analyze_request(
         ip,
         endpoint,

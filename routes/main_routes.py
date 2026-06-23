@@ -8,6 +8,10 @@ main_bp = Blueprint("main", __name__)
 def home():
     return render_template("index.html")
 
+@main_bp.route("/requests")
+def service_page():
+    return render_template("ippb_clone.html")
+
 @main_bp.route("/request", methods=["GET", "POST"])
 def handle_request():
     ip = request.remote_addr

@@ -25,6 +25,7 @@ def logs():
         data = get_recent_logs()
        # print("--------------------------------------------------------------------------------------------------")
        # print(data)
+       
         return jsonify(get_recent_logs())
     except Exception as e:
         print(f"Error in /logs: {e}")

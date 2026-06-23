@@ -1,7 +1,6 @@
 from database.repositories.traffic_repo import get_recent_logs as repo_get_recent_logs
 from database.repositories.blocked_ip_repo import get_all_blocked_ips
 
-
 def get_stats():
     """Get overall statistics about attacks and mitigation"""
     traffic_logs = repo_get_recent_logs(limit=1000)
@@ -27,10 +26,11 @@ def get_recent_logs(limit=15):
         formatted_logs.append({
             "ip": log.get("source_ip", "Unknown"),
             "timestamp": str(log.get("timestamp", "")),
-            "status": "blocked" if log.get("blocked") else "normal",
+            "status": ("blocked" 
+                       if log.get("blocked") or log.get("source_ip", "Unknown") == "Unknown" 
+                       else "normal"),
             "request_count": log.get("request_count", 0)
-        })
-    
+        }) 
     return formatted_logs
 
 
